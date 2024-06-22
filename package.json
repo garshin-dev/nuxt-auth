@@ -1,6 +1,8 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "nuxt-auth",
+  "author": "Garshin Vitaly",
+  "description": "Nuxt auth",
+  "license": "ISC",
   "type": "module",
   "scripts": {
     "build": "nuxt build",
