@@ -1,25 +1,39 @@
 <template>
-	<header class="bg-black text-blue">
+	<header class="py-2 px-4 flex items-center justify-between text-blt ue shadow-md">
 		<nav>
-			<ul>
+			<ul class="flex items-center gap-2">
 				<li
-					v-for="link in links"
-					:key="link"
+					v-for="el in navLinks"
+					:key="el"
 				>
-					{{ link.name }}
+					<NuxtLink :to="el.link" class="uppercase bold transition duration-300 border-b-blue border-b hover:border-none">
+						{{ $t(el.name) }}
+					</NuxtLink>
 				</li>
 			</ul>
 		</nav>
 		<div>
-			<ul>
+			<ul class="flex items-center gap-2">
 				<li>
 					<button>
-						Sign in
+						{{ $t('sign_in') }}
 					</button>
 				</li>
 				<li>
 					<button>
-						Sign up
+						{{ $t('sign_up') }}
+					</button>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<ul class="flex flex-col gap-1">
+				<li
+					v-for="locale in locales"
+					:key="locale"
+				>
+					<button @click="setLocale(locale.code)">
+						{{ locale.name }}
 					</button>
 				</li>
 			</ul>
@@ -28,7 +42,9 @@
 </template>
 
 <script setup lang="ts">
-const links = [
+const { locales, setLocale } = useI18n()
+
+const navLinks = [
 	{
 		name: 'home',
 		link: '/'
