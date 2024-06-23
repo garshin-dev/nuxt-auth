@@ -8,7 +8,8 @@ export default <Partial<Config>> {
 		colors: {
 			white: '#fff',
 			black: '#000',
-			blue: '#1258E3'
+			blue: '#1258E3',
+			gray: '#a2a2a2',
 		}
 	},
 	content: ['./src/**/*.{vue, ts}'],
