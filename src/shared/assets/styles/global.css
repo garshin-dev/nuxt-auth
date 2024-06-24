@@ -1,0 +1,3 @@
+a {
+  @apply text-blue border-blue border-b duration-300 transition hover:border-transparent;
+}
