@@ -31,6 +31,14 @@ class UserRepository {
 
     return rows[0]
   }
+
+  async getAllUsers() {
+    const query = "SELECT * FROM users"
+
+    const [rows] = await connection.execute(query)
+
+    return rows
+  }
 }
 
 export default new UserRepository()
