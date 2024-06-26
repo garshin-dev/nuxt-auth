@@ -26,12 +26,20 @@ class TokenService {
     return await tokenRepository.deleteRefreshToken(refreshToken)
   }
 
-  async validateAccessToken(accessToken) {
-    return jwt.verify(accessToken, "ACCESS_SECRET_KEY")
+  validateAccessToken(accessToken) {
+    try {
+      return jwt.verify(accessToken, "ACCESS_SECRET_KEY")
+    } catch (e) {
+      return null
+    }
   }
 
-  async validateRefreshToken(refreshToken) {
-    return jwt.verify(refreshToken, "REFRESH_SECRET_KEY")
+  validateRefreshToken(refreshToken) {
+    try {
+      return jwt.verify(refreshToken, "REFRESH_SECRET_KEY")
+    } catch (e) {
+      return null
+    }
   }
 
   async checkToken(refreshToken) {

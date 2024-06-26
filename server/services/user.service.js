@@ -52,7 +52,7 @@ class UserService {
       throw new Error("Unauthorized user")
     }
 
-    const userData = await tokenService.validateRefreshToken(refreshToken)
+    const userData = tokenService.validateRefreshToken(refreshToken)
     const isTokenExists = await tokenService.checkToken(refreshToken)
 
     if (!userData || !isTokenExists) {
@@ -67,6 +67,10 @@ class UserService {
       ...tokens,
       userId: user.id
     }
+  }
+
+  async getAllUsers() {
+    return await userRepository.getAllUsers()
   }
 }
 
